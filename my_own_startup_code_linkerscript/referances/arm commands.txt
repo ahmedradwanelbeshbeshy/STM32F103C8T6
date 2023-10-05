@@ -1,0 +1,16 @@
+here you will fined some command used with gcc compiler for arm for more info you could visit: https://gcc.gnu.org/onlinedocs/
+
+----------------------------------------------------------------------------------------------------------------------------------
+arm-none-eabi-gcc -c -mcpu=cortex-m3 -mthumb FILE.c -o FILE.o //compile
+
+arm-none-eabi-ld -T linkerscript.ld file1.o file2.o -o finalname.o //link
+
+arm-none-eabi-ld -Map app.map -T linkerscript.ld file1.o file2.o -o finalname.elf //generate the map file
+
+arm-none-eabi-objcopy -o binary file.elf file.bin //convert the extention from elf to binary, also could used with another extentions
+
+arm-none-eabi-objdump -t file.o //analyse the object file 
+
+to use stm studio tool we need generate debug info during compiling:
+
+arm-none-eabi-gcc -c -mcpu=cortex-m3 -mthumb --debug FILE.c -o FILE.o //compile
